@@ -1,0 +1,117 @@
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		Scanner scan = new Scanner(System.in);
+		String in1;
+		String in2;
+		
+		System.out.println("Welcome to luck tester. You can roll 5 kinds of rarities:");
+		System.out.println("Common (58.889%");
+		System.out.println("Uncommon (30%)");
+		System.out.println("Rare (10%)");
+		System.out.println("Very rare (1%)");
+		System.out.println("Super rare (0.1%)");
+		System.out.println("Extremely rare (0.01%)");
+		System.out.println("Impossible (0.001)");
+		System.out.println();
+		System.out.println("You can also change how many time you can roll per simulation and how many simulations you want to run");
+		System.out.println();
+		System.out.println("How many rolls per simulation?");
+		in1 = scan.nextLine();
+		System.out.println("How many simulations?");
+		in2 = scan.nextLine();
+		System.out.println();
+		
+		int commons = 0;
+		int uncommons = 0;
+		int rares = 0;
+		int veryRares = 0;
+		int superRares = 0;
+		int extremelyRares = 0;
+		int impossibles = 0;
+		
+		int rolls = (int)(Integer.parseInt(in1));
+		int simulations = (int)(Integer.parseInt(in2));
+		
+		int commonAverage = 0;
+		int uncommonAverage = 0;
+		int rareAverage = 0;
+		int veryRareAverage = 0;
+		int superRareAverage = 0;
+		int extremelyRareAverage = 0;
+		int impossibleAverage = 0;
+		
+		for (int i = 1; i<=simulations; i++)
+		{
+		    for (int u = 0; u<rolls; u++)
+		    {
+		        int rand = (int)(Math.random()*100000);
+		        if (rand>=0 && rand<=58889)
+		        {
+		            commons++;
+		        }
+		        if (rand>58889 && rand<=88889)
+		        {
+		            uncommons++;
+		        }
+		        if (rand>88889 && rand<=98889)
+		        {
+		            rares++;
+		        }
+		        if (rand>98889 && rand<=99889)
+		        {
+		            veryRares++;
+		        }
+		        if (rand>99889 && rand<=99989)
+		        {
+		            superRares++;
+		        }
+		        if (rand>99989 && rand<=99999)
+		        {
+		            extremelyRares++;
+		        }
+		        if (rand==100000)
+		        {
+		            impossibles++;
+		        }
+		    }
+		    System.out.println("Simulation "+i);
+		    System.out.println("Commons: "+commons);
+		    System.out.println("Uncommons: "+uncommons);
+		    System.out.println("Rares: "+rares);
+		    System.out.println("Very rares: "+veryRares);
+		    System.out.println("Super rares: "+superRares);
+		    System.out.println("Extremely rares: "+extremelyRares);
+		    System.out.println("Impossibles: "+impossibles);
+		    System.out.println();
+		    
+		    commonAverage+=commons;
+		    uncommonAverage+=uncommons;
+		    rareAverage+=rares;
+		    veryRareAverage+=veryRares;
+		    superRareAverage+=superRares;
+		    extremelyRareAverage+=extremelyRares;
+		    impossibleAverage+=impossibles;
+		    
+		    commons=0;
+		    uncommons=0;
+		    rares=0;
+		    veryRares=0;
+		    superRares=0;
+		    extremelyRares=0;
+		    impossibles=0;
+		}
+		
+		System.out.println("Averages:");
+		System.out.println("Commons: "+(double)(commonAverage)/(double)(simulations));
+		System.out.println("Uncommons: "+(double)(uncommonAverage)/(double)(simulations));
+		System.out.println("Rares: "+(double)(rareAverage)/(double)(simulations));
+		System.out.println("Very rares: "+(double)(veryRares)/(double)(simulations));
+		System.out.println("Super rares: "+(double)(superRares)/(double)(simulations));
+		System.out.println("Extremely rares: "+(double)(extremelyRares)/(double)(simulations));
+		System.out.println("Impossibles: "+(double)(impossibleAverage)/(double)(simulations));
+	}
+}
