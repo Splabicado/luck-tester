@@ -105,13 +105,43 @@ public class Main
 		    impossibles=0;
 		}
 		
+		System.out.println("-----------------------------------------------------------------");
+		System.out.println();
+		
+		System.out.println("Totals:");
+		System.out.println("Commons: "+commonAverage);
+		System.out.println("Uncommons: "+uncommonAverage);
+		System.out.println("Rares: "+rareAverage);
+		System.out.println("Very rares: "+veryRareAverage);
+		System.out.println("Super rares: "+superRareAverage);
+		System.out.println("Extremely rares: "+extremelyRareAverage);
+		System.out.println("Impossibles: "+impossibleAverage);
+		System.out.println();
+		
 		System.out.println("Averages:");
 		System.out.println("Commons: "+(double)(commonAverage)/(double)(simulations));
 		System.out.println("Uncommons: "+(double)(uncommonAverage)/(double)(simulations));
 		System.out.println("Rares: "+(double)(rareAverage)/(double)(simulations));
-		System.out.println("Very rares: "+(double)(veryRares)/(double)(simulations));
-		System.out.println("Super rares: "+(double)(superRares)/(double)(simulations));
-		System.out.println("Extremely rares: "+(double)(extremelyRares)/(double)(simulations));
+		System.out.println("Very rares: "+(double)(veryRareAverage)/(double)(simulations));
+		System.out.println("Super rares: "+(double)(superRareAverage)/(double)(simulations));
+		System.out.println("Extremely rares: "+(double)(extremelyRareAverage)/(double)(simulations));
 		System.out.println("Impossibles: "+(double)(impossibleAverage)/(double)(simulations));
+		System.out.println();
+		
+		int luckRating = (uncommonAverage)+(rareAverage*10)+(veryRareAverage*100)+(superRareAverage*1000)+(extremelyRareAverage*10000)+(impossibleAverage*100000);
+		if (luckRating<50000)
+		
+		if (luckRating>=50000)
+		{
+		    System.out.println("You are moderately lucky");
+		}
+		if (luckRating>=100000)
+		{
+		    System.out.println("You are very lucky!");
+		}
+		if (luckRating>=200000)
+		{
+		    System.out.println("You are extremely lucky!");
+		}
 	}
 }
